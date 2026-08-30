@@ -1,70 +1,322 @@
-# Getting Started with Create React App
+# 🏥 Hospital Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack web application developed using React.js, Spring Boot, and MySQL to manage hospital operations efficiently.
 
-## Available Scripts
+The system provides modules for managing patients, doctors, appointments, medical records, and patient reports through a responsive user interface and REST APIs.
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- Patient Management
+- Doctor Management
+- Appointment Management
+- Medical Record Management
+- Patient Report Generation
+- Dynamic Dashboard
+- Form Validation
+- Custom Exception Handling
+- REST API Integration
+- Swagger / OpenAPI Documentation
+- JUnit, Mockito, and MockMvc Testing
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
+- React.js
+- JavaScript
+- HTML5
+- CSS3
+- Bootstrap
+- Axios
+- React Router
+- React Icons
 
-### `npm test`
+### Backend
+- Java 17
+- Spring Boot
+- Spring Data JPA
+- Hibernate
+- REST APIs
+- Jakarta Validation
+- Lombok
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Database
+- MySQL
 
-### `npm run build`
+### API Documentation
+- Swagger / OpenAPI
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Testing
+- JUnit 5
+- Mockito
+- MockMvc
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Development Tools
+- Eclipse
+- Visual Studio Code
+- Postman
+- Git
+- GitHub
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🏗️ Project Architecture
 
-### `npm run eject`
+```text
+React Frontend
+      |
+      | Axios / REST API
+      v
+Spring Boot Controller
+      |
+      v
+Service Layer
+      |
+      v
+Repository Layer
+      |
+      v
+MySQL Database
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📋 Application Modules
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Patient Management
+- Add new patients
+- View all patients
+- View patient details
+- Delete patients
+- Generate patient reports
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Doctor Management
+- Add new doctors
+- View all doctors
+- View doctor details
+- Delete doctors
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Appointment Management
+- Schedule appointments
+- View all appointments
+- View appointment details
+- Delete appointments
 
-## Learn More
+### Medical Record Management
+- Add medical records
+- View all medical records
+- View medical record details
+- Delete medical records
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Patient Report
+- View patient information
+- View appointment history
+- View medical record history
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔗 REST API Endpoints
 
-### Code Splitting
+### Patient APIs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```text
+GET    /patients
+POST   /patients
+GET    /patients/{id}
+DELETE /patients/{id}
+GET    /patients/{id}/report
+```
 
-### Analyzing the Bundle Size
+### Doctor APIs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```text
+GET    /doctors
+POST   /doctors
+GET    /doctors/{id}
+DELETE /doctors/{id}
+```
 
-### Making a Progressive Web App
+### Appointment APIs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```text
+GET    /appointments
+POST   /appointments
+GET    /appointments/{id}
+DELETE /appointments/{id}
+```
 
-### Advanced Configuration
+### Medical Record APIs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```text
+GET    /medical-records
+POST   /medical-records
+GET    /medical-records/{id}
+DELETE /medical-records/{id}
+```
 
-### Deployment
+## 📖 Swagger / OpenAPI Documentation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Swagger/OpenAPI is integrated into the backend to provide interactive REST API documentation and testing.
 
-### `npm run build` fails to minify
+After starting the Spring Boot backend, open:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```text
+http://localhost:8080/swagger-ui.html
+```
+
+OpenAPI JSON documentation:
+
+```text
+http://localhost:8080/v3/api-docs
+```
+
+Swagger allows developers to view available endpoints, request bodies, parameters, response codes, and test the APIs directly from the browser.
+
+## ✅ Validation & Exception Handling
+
+Input validation is implemented using Jakarta Validation to prevent invalid data from being stored in the system.
+
+Validation is applied to:
+
+- Patient details such as name, age, email, phone, and blood group
+- Doctor details such as name, specialization, email, and experience
+- Appointment details such as patient, doctor, date, time, and status
+- Medical record details such as diagnosis, treatment, prescription, and visit date
+
+Invalid input returns:
+
+`400 Bad Request`
+
+Custom exception handling is implemented using:
+
+- `ResourceNotFoundException`
+- `GlobalExceptionHandler`
+
+When a requested resource is not found, the API returns:
+
+`404 Not Found`
+
+with a structured JSON error response.
+
+## 🧪 Testing
+
+The backend is tested using:
+
+- JUnit 5
+- Mockito
+- MockMvc
+
+The test suite covers:
+
+- Service layer operations
+- Controller endpoints
+- Successful API responses
+- Resource not found scenarios
+- Input validation
+- Delete operations
+- Patient report generation
+
+Current test result:
+
+```text
+44 / 44 Tests Passed
+Errors: 0
+Failures: 0
+```
+
+## 🗄️ Database
+
+The application uses MySQL for storing and managing hospital data.
+
+Database name:
+
+```text
+hospital_management
+```
+
+Main tables:
+
+```text
+patients
+doctors
+appointments
+medical_records
+```
+
+Spring Data JPA and Hibernate are used to communicate between the Spring Boot backend and MySQL database.
+
+## 🚀 How to Run the Project
+
+### 1. Start MySQL
+
+- Open XAMPP Control Panel
+- Start MySQL
+- Make sure the `hospital_management` database is available
+
+### 2. Run the Spring Boot Backend
+
+Open the backend project in Eclipse.
+
+Run:
+
+```text
+HospitalManagementBackendApplication.java
+```
+
+The backend will start at:
+
+```text
+http://localhost:8080
+```
+
+### 3. Run the React Frontend
+
+Open the frontend project in Visual Studio Code.
+
+Install the required dependencies:
+
+```bash
+npm install
+```
+
+Start the React application:
+
+```bash
+npm start
+```
+
+The frontend will start at:
+
+```text
+http://localhost:3000
+```
+
+### 4. Open the Application
+
+Open the following address in your browser:
+
+```text
+http://localhost:3000
+```
+
+## 🔮 Future Enhancements
+
+- User login and authentication
+- Spring Security integration
+- Role-based access for Admin, Doctor, and Receptionist
+- Appointment update functionality
+- Email notifications
+- Search and filtering
+- Pagination
+- Cloud deployment
+
+## 📌 Project Status
+
+The core Hospital Management System is successfully completed with:
+
+- React.js frontend
+- Spring Boot backend
+- MySQL database integration
+- REST API development
+- Input validation
+- Custom exception handling
+- Swagger / OpenAPI documentation
+- JUnit, Mockito, and MockMvc testing
+- 44 automated tests successfully passing
+
+## 👨‍💻 Author
+
+**Gopinath**
