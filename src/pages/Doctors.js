@@ -23,7 +23,7 @@ function Doctors() {
 
   const fetchDoctors = async () => {
     try {
-      const response = axios.get(`${API_BASE_URL}/doctors`);
+      const response = await axios.get(`${API_BASE_URL}/doctors`);
 
       setDoctors(response.data);
 
