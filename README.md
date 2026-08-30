@@ -4,6 +4,12 @@ A full-stack web application developed using React.js, Spring Boot, and MySQL to
 
 The system provides modules for managing patients, doctors, appointments, medical records, and patient reports through a responsive user interface and REST APIs.
 
+## 🌐 Live Demo
+
+- Frontend: https://hospital-management-frontend-zzfl.onrender.com
+- Backend API: https://hospital-management-system-mrj7.onrender.com
+- Swagger UI: https://hospital-management-system-mrj7.onrender.com/swagger-ui/index.html
+
 ## ✨ Features
 
 - Patient Management
@@ -56,6 +62,14 @@ The system provides modules for managing patients, doctors, appointments, medica
 - Postman
 - Git
 - GitHub
+
+## ☁️ Deployment
+
+- **Frontend:** Render Static Site
+- **Backend:** Render Web Service using Docker
+- **Database:** Aiven MySQL
+- **API Documentation:** Swagger / OpenAPI
+- **Version Control:** Git & GitHub
 
 ## 🏗️ Project Architecture
 
@@ -305,17 +319,28 @@ http://localhost:3000
 
 ## 📌 Project Status
 
-The core Hospital Management System is successfully completed with:
+The Hospital Management System is fully developed, tested, and deployed with:
 
 - React.js frontend
 - Spring Boot backend
-- MySQL database integration
+- Aiven MySQL cloud database
 - REST API development
 - Input validation
 - Custom exception handling
 - Swagger / OpenAPI documentation
 - JUnit, Mockito, and MockMvc testing
 - 44 automated tests successfully passing
+- Frontend deployed on Render
+- Backend deployed on Render using Docker
+- End-to-end cloud deployment successfully tested
+
+### ✅ Deployment Status
+
+- Frontend: Live
+- Backend API: Live
+- Cloud Database: Connected
+- Swagger Documentation: Live
+- End-to-End Testing: Completed
 
 ## 👨‍💻 Author
 
