@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from "../api";
 
 function Doctors() {
 
@@ -22,9 +23,7 @@ function Doctors() {
 
   const fetchDoctors = async () => {
     try {
-      const response = await axios.get(
-        'http://localhost:8080/doctors'
-      );
+      const response = axios.get(`${API_BASE_URL}/doctors`);
 
       setDoctors(response.data);
 
@@ -41,8 +40,7 @@ function Doctors() {
     event.preventDefault();
 
     try {
-      await axios.post(
-        'http://localhost:8080/doctors',
+      await axios.post(`${API_BASE_URL}/doctors`,
         doctor
       );
 
@@ -75,9 +73,7 @@ function Doctors() {
     }
 
     try {
-      await axios.delete(
-        `http://localhost:8080/doctors/${id}`
-      );
+      await axios.delete(`${API_BASE_URL}/doctors/${id}`);
 
       alert('Doctor deleted successfully');
 

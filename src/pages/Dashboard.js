@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from "../api";
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -22,21 +23,13 @@ function Dashboard() {
 
     try {
 
-      const patients = await axios.get(
-        'http://localhost:8080/patients'
-      );
+      const patients = await axios.get(`${API_BASE_URL}/patients`);
 
-      const doctors = await axios.get(
-        'http://localhost:8080/doctors'
-      );
+      const doctors = await axios.get(`${API_BASE_URL}/doctors`);
 
-      const appointments = await axios.get(
-        'http://localhost:8080/appointments'
-      );
+      const appointments = await axios.get(`${API_BASE_URL}/appointments`);
 
-      const records = await axios.get(
-        'http://localhost:8080/medical-records'
-      );
+      const records = await axios.get(`${API_BASE_URL}/medical-records`);
 
       setPatientCount(patients.data.length);
       setDoctorCount(doctors.data.length);

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.hospital.management.entity.Appointment;
 import com.hospital.management.service.AppointmentService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "${FRONTEND_URL:http://localhost:3000}")
 @RestController
 @RequestMapping("/appointments")
 public class AppointmentController {

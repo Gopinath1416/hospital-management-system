@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from "../api";
 
 function MedicalRecords() {
 
@@ -18,9 +19,7 @@ function MedicalRecords() {
 
   const fetchPatients = async () => {
     try {
-      const response = await axios.get(
-        'http://localhost:8080/patients'
-      );
+      const response = await axios.get(`${API_BASE_URL}/patients`);
       setPatients(response.data);
     } catch (error) {
       console.error(error);
@@ -29,9 +28,7 @@ function MedicalRecords() {
 
   const fetchDoctors = async () => {
     try {
-      const response = await axios.get(
-        'http://localhost:8080/doctors'
-      );
+      const response = await axios.get(`${API_BASE_URL}/doctors`);
       setDoctors(response.data);
     } catch (error) {
       console.error(error);
@@ -40,9 +37,7 @@ function MedicalRecords() {
 
   const fetchRecords = async () => {
     try {
-      const response = await axios.get(
-        'http://localhost:8080/medical-records'
-      );
+      const response = await axios.get(`${API_BASE_URL}/medical-records`);
       setRecords(response.data);
     } catch (error) {
       console.error(error);
@@ -79,8 +74,7 @@ function MedicalRecords() {
     };
 
     try {
-      await axios.post(
-        'http://localhost:8080/medical-records',
+      await axios.post(`${API_BASE_URL}/medical-records`,
         recordData
       );
 
@@ -114,9 +108,7 @@ function MedicalRecords() {
     }
 
     try {
-      await axios.delete(
-        `http://localhost:8080/medical-records/${id}`
-      );
+      await axios.delete(`${API_BASE_URL}/medical-records/${id}`);
 
       alert('Medical record deleted successfully');
 

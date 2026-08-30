@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from "../api";
 
 function PatientReport() {
 
@@ -9,9 +10,7 @@ function PatientReport() {
 
   const fetchPatients = async () => {
     try {
-      const response = await axios.get(
-        'http://localhost:8080/patients'
-      );
+      const response = await axios.get(`${API_BASE_URL}/patients`);
 
       setPatients(response.data);
 
@@ -32,9 +31,7 @@ function PatientReport() {
     }
 
     try {
-      const response = await axios.get(
-        `http://localhost:8080/patients/${selectedPatientId}/report`
-      );
+      const response = await axios.get(`${API_BASE_URL}/patients/${selectedPatientId}/report`);
 
       setReport(response.data);
 

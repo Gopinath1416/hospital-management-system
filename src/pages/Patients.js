@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from "../api";
 
 function Patients() {
 
@@ -17,9 +18,7 @@ function Patients() {
 
   const fetchPatients = async () => {
   try {
-    const response = await axios.get(
-      'http://localhost:8080/patients'
-    );
+    const response = await axios.get(`${API_BASE_URL}/patients`);
 
     setPatients(response.data);
 
@@ -43,7 +42,7 @@ useEffect(() => {
     event.preventDefault();
 
     try {
-      await axios.post('http://localhost:8080/patients', patient);
+      await axios.post(`${API_BASE_URL}/patients`, patient);
 
       alert('Patient registered successfully');
       fetchPatients();
@@ -74,7 +73,7 @@ useEffect(() => {
   }
 
   try {
-    await axios.delete(`http://localhost:8080/patients/${id}`);
+    await axios.delete(`${API_BASE_URL}/patients/${id}`);
 
     alert('Patient deleted successfully');
 

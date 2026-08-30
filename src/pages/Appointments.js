@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from "../api";
 
 function Appointments() {
 
@@ -17,9 +18,7 @@ function Appointments() {
 
   const fetchPatients = async () => {
     try {
-      const response = await axios.get(
-        'http://localhost:8080/patients'
-      );
+      const response = await axios.get(`${API_BASE_URL}/patients`);
       setPatients(response.data);
     } catch (error) {
       console.error(error);
@@ -28,9 +27,7 @@ function Appointments() {
 
   const fetchDoctors = async () => {
     try {
-      const response = await axios.get(
-        'http://localhost:8080/doctors'
-      );
+      const response = await axios.get(`${API_BASE_URL}/doctors`);
       setDoctors(response.data);
     } catch (error) {
       console.error(error);
@@ -39,9 +36,7 @@ function Appointments() {
 
   const fetchAppointments = async () => {
     try {
-      const response = await axios.get(
-        'http://localhost:8080/appointments'
-      );
+      const response = await axios.get(`${API_BASE_URL}/appointments`);
       setAppointments(response.data);
     } catch (error) {
       console.error(error);
@@ -77,9 +72,7 @@ function Appointments() {
     };
 
     try {
-      await axios.post(
-        'http://localhost:8080/appointments',
-        appointmentData
+      await axios.post(`${API_BASE_URL}/appointments`,appointmentData
       );
 
       alert('Appointment booked successfully');
@@ -111,9 +104,7 @@ function Appointments() {
     }
 
     try {
-      await axios.delete(
-        `http://localhost:8080/appointments/${id}`
-      );
+      await axios.delete(`${API_BASE_URL}/appointments/${id}`);
 
       alert('Appointment deleted successfully');
 
