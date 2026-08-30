@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.hospital.management.entity.MedicalRecord;
 import com.hospital.management.service.MedicalRecordService;
 
-@CrossOrigin(origins = "${FRONTEND_URL:http://localhost:3000}")
+@CrossOrigin(origins = {
+    "http://localhost:3000",
+    "${FRONTEND_URL:https://hospital-management-frontend-zzfl.onrender.com}"
+})
 @RestController
 @RequestMapping("/medical-records")
 public class MedicalRecordController {

@@ -17,7 +17,10 @@ import com.hospital.management.entity.Patient;
 import com.hospital.management.service.PatientService;
 import com.hospital.management.dto.PatientReport;
 
-@CrossOrigin(origins = "${FRONTEND_URL:http://localhost:3000}")
+@CrossOrigin(origins = {
+    "http://localhost:3000",
+    "${FRONTEND_URL:https://hospital-management-frontend-zzfl.onrender.com}"
+})
 @RestController
 @RequestMapping("/patients")
 public class PatientController {
