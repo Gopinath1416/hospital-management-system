@@ -88,9 +88,16 @@ useEffect(() => {
   return (
     <div className="container mt-4">
 
-      <h2 className="mb-4">Patient Registration</h2>
+      <div className="page-header mb-4">
+        <div>
+          <h2 className="mb-1">Patient Registration</h2>
+          <p className="text-muted mb-0">
+            Add and manage patient information
+          </p>
+        </div>
+      </div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="patient-form">
 
         <div className="row">
 
@@ -195,7 +202,10 @@ useEffect(() => {
 
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        <button
+          type="submit"
+          className="btn btn-primary patient-submit-btn"
+        >
           Register Patient
         </button>
 
@@ -203,11 +213,22 @@ useEffect(() => {
 
       <hr className="my-5" />
 
-<h2 className="mb-4">Registered Patients</h2>
+<div className="section-header mb-3">
+  <div>
+    <h2 className="mb-1">Registered Patients</h2>
+    <p className="text-muted mb-0">
+      View and manage all registered patients
+    </p>
+  </div>
+
+  <span className="count-badge">
+    {patients.length} Patients
+  </span>
+</div>
 
 <div className="table-responsive">
 
-  <table className="table table-bordered table-striped">
+  <table className="table patient-table">
 
     <thead>
       <tr>
@@ -235,15 +256,19 @@ useEffect(() => {
           <td>{p.gender}</td>
           <td>{p.phone}</td>
           <td>{p.email}</td>
-          <td>{p.bloodGroup}</td>
+          <td>
+            <span className="blood-group-badge">
+              {p.bloodGroup}
+            </span>
+          </td>
           <td>{p.address}</td>
           
           <td>
             <button
-                className="btn btn-danger btn-sm"
-                onClick={() => deletePatient(p.patientId)}
+              className="btn btn-danger btn-sm patient-delete-btn"
+              onClick={() => deletePatient(p.patientId)}
             >
-                Delete
+              Delete
             </button>
          </td>
 

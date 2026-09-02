@@ -88,9 +88,16 @@ function Doctors() {
   return (
     <div className="container mt-4">
 
-      <h2 className="mb-4">Doctor Registration</h2>
+      <div className="page-header mb-4">
+        <div>
+          <h2 className="mb-1">Doctor Registration</h2>
+          <p className="text-muted mb-0">
+            Add and manage doctor information
+          </p>
+        </div>
+      </div>
 
-      <form onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit} className="doctor-form">
 
         <div className="row">
 
@@ -172,7 +179,7 @@ function Doctors() {
 
         <button
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary doctor-submit-btn"
         >
           Register Doctor
         </button>
@@ -181,13 +188,27 @@ function Doctors() {
 
       <hr className="my-5" />
 
-      <h2 className="mb-4">
-        Registered Doctors
-      </h2>
+      <div className="section-header mb-3">
+
+        <div>
+          <h2 className="mb-1">
+            Registered Doctors
+          </h2>
+
+          <p className="text-muted mb-0">
+            View and manage all registered doctors
+          </p>
+        </div>
+
+        <span className="doctor-count-badge">
+          {doctors.length} Doctors
+        </span>
+
+      </div>
 
       <div className="table-responsive">
 
-        <table className="table table-bordered table-striped">
+        <table className="table doctor-table">
 
           <thead>
             <tr>
@@ -212,11 +233,15 @@ function Doctors() {
                 <td>{d.specialization}</td>
                 <td>{d.phone}</td>
                 <td>{d.email}</td>
-                <td>{d.experience} Years</td>
+                <td>
+                  <span className="experience-badge">
+                    {d.experience} Years
+                  </span>
+                </td>
 
                 <td>
                   <button
-                    className="btn btn-danger btn-sm"
+                    className="btn btn-danger btn-sm doctor-delete-btn"
                     onClick={() =>
                       deleteDoctor(d.doctorId)
                     }

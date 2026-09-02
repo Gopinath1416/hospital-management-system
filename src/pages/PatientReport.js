@@ -44,11 +44,19 @@ function PatientReport() {
   return (
     <div className="container mt-4">
 
-      <h2 className="mb-4">
-        Patient Report
-      </h2>
+      <div className="page-header mb-4">
+        <div>
+          <h2 className="mb-1">
+            Patient Report
+          </h2>
 
-      <div className="row mb-4">
+          <p className="text-muted mb-0">
+            Generate a complete patient history report
+          </p>
+        </div>
+      </div>
+
+      <div className="row mb-4 patient-report-controls">
 
         <div className="col-md-6">
 
@@ -87,7 +95,7 @@ function PatientReport() {
         <div className="col-md-3 d-flex align-items-end">
 
           <button
-            className="btn btn-primary"
+            className="btn btn-primary mt-3 report-generate-btn"
             onClick={generateReport}
           >
             Generate Report
@@ -103,11 +111,13 @@ function PatientReport() {
 
           <hr />
 
-          <h3 className="mt-4 mb-3">
-            Patient Details
-          </h3>
+          <div className="report-section-title mt-4 mb-3">
+            <h3 className="mb-0">
+              Patient Details
+            </h3>
+          </div>
 
-          <div className="card mb-4">
+          <div className="card mb-4 patient-details-card">
 
             <div className="card-body">
 
@@ -155,13 +165,15 @@ function PatientReport() {
 
           </div>
 
-          <h3 className="mb-3">
-            Appointment History
-          </h3>
+          <div className="report-section-title mb-3">
+            <h3 className="mb-0">
+              Appointment History
+            </h3>
+          </div>
 
           <div className="table-responsive mb-5">
 
-            <table className="table table-bordered table-striped">
+            <table className="table report-appointment-table">
 
               <thead>
 
@@ -233,13 +245,15 @@ function PatientReport() {
 
           </div>
 
-          <h3 className="mb-3">
-            Medical History
-          </h3>
+          <div className="report-section-title mb-3">
+            <h3 className="mb-0">
+              Medical History
+            </h3>
+          </div>
 
           <div className="table-responsive mb-5">
 
-            <table className="table table-bordered table-striped">
+            <table className="table report-medical-table">
 
               <thead>
 

@@ -64,14 +64,14 @@ function Dashboard() {
         <div className="col-lg-3 col-md-6 mb-4">
 
          <div
-          className="card dashboard-card shadow-sm h-100"
+          className="card dashboard-card patient-card shadow-sm h-100"
           onClick={() => navigate('/patients')}
           style={{ cursor: 'pointer' }}
          >
 
             <div className="card-body d-flex align-items-center">
 
-             <div className="me-3 fs-1 text-primary">
+             <div className="dashboard-icon patient me-3">
                 <FaUserInjured />
              </div>
 
@@ -94,7 +94,7 @@ function Dashboard() {
         <div className="col-lg-3 col-md-6 mb-4">
 
           <div
-            className="card dashboard-card shadow-sm h-100"
+            className="card dashboard-card doctor-card shadow-sm h-100"
             onClick={() => navigate('/doctors')}
             style={{ cursor: 'pointer' }}
           >
@@ -124,7 +124,7 @@ function Dashboard() {
         <div className="col-lg-3 col-md-6 mb-4">
 
           <div
-            className="card dashboard-card shadow-sm h-100"
+            className="card dashboard-card appointment-card shadow-sm h-100"
             onClick={() => navigate('/appointments')}
             style={{ cursor: 'pointer' }}
           >
@@ -154,7 +154,7 @@ function Dashboard() {
         <div className="col-lg-3 col-md-6 mb-4">
 
           <div
-            className="card dashboard-card shadow-sm h-100"
+            className="card dashboard-card record-card shadow-sm h-100"
             onClick={() => navigate('/medical-records')}
             style={{ cursor: 'pointer' }}
           >
@@ -183,17 +183,19 @@ function Dashboard() {
 
       </div>
 
-      <div className="card shadow-sm mt-3">
+      <div className="welcome-card mt-3">
 
-        <div className="card-body">
-
+        <div>
           <h4>Welcome to Hospital Management System</h4>
 
-          <p className="text-muted mb-0">
-            Manage patients, doctors, appointments, medical records
+          <p className="mb-0">
+            Manage patients, doctors, appointments, medical records,
             and patient reports from one place.
           </p>
+        </div>
 
+        <div className="welcome-badge">
+          HMS
         </div>
 
       </div>

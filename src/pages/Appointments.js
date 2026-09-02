@@ -119,9 +119,16 @@ function Appointments() {
   return (
     <div className="container mt-4">
 
-      <h2 className="mb-4">Book Appointment</h2>
+      <div className="page-header mb-4">
+        <div>
+          <h2 className="mb-1">Book Appointment</h2>
+          <p className="text-muted mb-0">
+            Schedule and manage patient appointments
+          </p>
+        </div>
+      </div>
 
-      <form onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit} className="appointment-form">
 
         <div className="row">
 
@@ -254,7 +261,7 @@ function Appointments() {
 
         <button
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary appointment-submit-btn"
         >
           Book Appointment
         </button>
@@ -263,13 +270,27 @@ function Appointments() {
 
       <hr className="my-5" />
 
-      <h2 className="mb-4">
-        Appointment List
-      </h2>
+      <div className="section-header mb-3">
+
+        <div>
+          <h2 className="mb-1">
+            Appointment List
+          </h2>
+
+          <p className="text-muted mb-0">
+            View and manage all scheduled appointments
+          </p>
+        </div>
+
+        <span className="appointment-count-badge">
+          {appointments.length} Appointments
+        </span>
+
+      </div>
 
       <div className="table-responsive">
 
-        <table className="table table-bordered table-striped">
+        <table className="table appointment-table">
 
           <thead>
             <tr>
@@ -308,12 +329,16 @@ function Appointments() {
                 </td>
 
                 <td>
-                  {a.status}
+                  <span
+                    className={`appointment-status ${a.status?.toLowerCase()}`}
+                  >
+                    {a.status}
+                  </span>
                 </td>
 
                 <td>
                   <button
-                    className="btn btn-danger btn-sm"
+                    className="btn btn-danger btn-sm appointment-delete-btn"
                     onClick={() =>
                       deleteAppointment(a.appointmentId)
                     }

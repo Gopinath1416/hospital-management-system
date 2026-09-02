@@ -123,9 +123,16 @@ function MedicalRecords() {
   return (
     <div className="container mt-4">
 
-      <h2 className="mb-4">Add Medical Record</h2>
+      <div className="page-header mb-4">
+        <div>
+          <h2 className="mb-1">Add Medical Record</h2>
+          <p className="text-muted mb-0">
+            Record patient diagnosis, treatment, and prescription details
+          </p>
+        </div>
+      </div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="medical-record-form">
 
         <div className="row">
 
@@ -263,7 +270,7 @@ function MedicalRecords() {
 
         <button
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary medical-record-submit-btn"
         >
           Add Medical Record
         </button>
@@ -272,13 +279,27 @@ function MedicalRecords() {
 
       <hr className="my-5" />
 
-      <h2 className="mb-4">
-        Medical Records
-      </h2>
+      <div className="section-header mb-3">
+
+        <div>
+          <h2 className="mb-1">
+            Medical Records
+          </h2>
+
+          <p className="text-muted mb-0">
+            View and manage all patient medical records
+          </p>
+        </div>
+
+        <span className="record-count-badge">
+          {records.length} Records
+        </span>
+
+      </div>
 
       <div className="table-responsive">
 
-        <table className="table table-bordered table-striped">
+        <table className="table medical-record-table">
 
           <thead>
             <tr>
@@ -309,14 +330,18 @@ function MedicalRecords() {
                   {r.doctor?.name}
                 </td>
 
-                <td>{r.diagnosis}</td>
+                <td>
+                  <span className="diagnosis-badge">
+                    {r.diagnosis}
+                  </span>
+                </td>
                 <td>{r.treatment}</td>
                 <td>{r.prescription}</td>
                 <td>{r.visitDate}</td>
 
                 <td>
                   <button
-                    className="btn btn-danger btn-sm"
+                    className="btn btn-danger btn-sm medical-record-delete-btn"
                     onClick={() =>
                       deleteRecord(r.recordId)
                     }
